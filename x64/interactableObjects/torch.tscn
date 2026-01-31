@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cxfsm0440v0vw"]
+
+[ext_resource type="Script" uid="uid://bvihhsww2cy5e" path="res://script/interactableObjects/torch.gd" id="1_xjigk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikjg2"]
+size = Vector3(0.1, 0.1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikjg2"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xjigk"]
+material = SubResource("StandardMaterial3D_ikjg2")
+size = Vector3(0.05, 0.05, 0.3)
+
+[node name="torch" type="StaticBody3D" unique_id=2645352 node_paths=PackedStringArray("collision", "label3d") groups=["pickup", "torch"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_xjigk")
+collision = NodePath("CollisionShape3D")
+label3d = NodePath("Label3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1493116348]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.34646735, 0.077825695)
+shape = SubResource("BoxShape3D_ikjg2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=288100033]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.34646735, 0.077825695)
+mesh = SubResource("BoxMesh_xjigk")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1824699984]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0015766323, 0.4383603, 0.4404525)
+billboard = 2
+text = "Press E to Pick up Torch"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1098364192]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0015766323, 0.5028087, 0.086732954)
+shadow_enabled = true
+spot_range = 15.0

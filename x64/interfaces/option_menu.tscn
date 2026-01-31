@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cdgeir6oqnwkw"]
+
+[ext_resource type="Script" uid="uid://lqysiy1oga0p" path="res://script/interfaces/option_menu.gd" id="1_owri2"]
+
+[node name="optionMenu" type="CanvasLayer" unique_id=1499165736 node_paths=PackedStringArray("tta", "resolution", "sensitivity", "sensitivity_value")]
+script = ExtResource("1_owri2")
+tta = NodePath("TabContainer/Graphics settings/VBoxContainer/HBoxContainer2/CheckBox")
+resolution = NodePath("TabContainer/Graphics settings/VBoxContainer/HBoxContainer/OptionButton")
+sensitivity = NodePath("TabContainer/Game Settings/VBoxContainer/HBoxContainer/HSlider")
+sensitivity_value = NodePath("TabContainer/Game Settings/VBoxContainer/HBoxContainer/Label2")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1318798265]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -484.0
+offset_top = -297.0
+offset_right = 484.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Game Settings" type="TabBar" parent="TabContainer" unique_id=1846857365]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Game Settings" unique_id=230304895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Game Settings/VBoxContainer" unique_id=1818117325]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer" unique_id=991476815]
+layout_mode = 2
+text = "Sensitivity: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer" unique_id=900509725]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Label2" type="Label" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer" unique_id=999207147]
+layout_mode = 2
+text = "value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Graphics settings" type="TabBar" parent="TabContainer" unique_id=1343397743]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics settings" unique_id=220168868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Graphics settings/VBoxContainer" unique_id=959295083]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Graphics settings/VBoxContainer/HBoxContainer" unique_id=997540186]
+layout_mode = 2
+text = "Resolution: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Graphics settings/VBoxContainer/HBoxContainer" unique_id=1213956904]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Graphics settings/VBoxContainer" unique_id=1164660059]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Graphics settings/VBoxContainer/HBoxContainer2" unique_id=2112135198]
+layout_mode = 2
+text = "Use TTA: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Graphics settings/VBoxContainer/HBoxContainer2" unique_id=972749051]
+layout_mode = 2
+
+[node name="Close Setting" type="Button" parent="TabContainer" unique_id=351385894]
+visible = false
+layout_mode = 2
+text = "Press here to close it"
+metadata/_tab_index = 2
+
+[connection signal="pressed" from="TabContainer/Close Setting" to="." method="onQuitPressed"]
